@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #333;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 20px 30px;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+header button {
+    padding: 12px 18px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+header button:hover {
+    background: #1d4ed8;
+}
+
+/* Main */
+main {
+    padding: 40px 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #2563eb;
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.page-description {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Update Form */
+.update-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.update-card {
+    width: 500px;
+    max-width: 90%;
+    background: white;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease;
+}
+
+.update-card:hover {
+    transform: translateY(-3px);
+}
+
+.update-card h3 {
+    text-align: center;
+    color: #2563eb;
+    margin-bottom: 25px;
+    font-size: 28px;
+}
+
+.update-card input,
+.update-card select {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 18px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    font-size: 15px;
+    outline: none;
+}
+
+.update-card input:focus,
+.update-card select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 5px rgba(37, 99, 235, 0.25);
+}
+
+.helper-text {
+    font-size: 13px;
+    color: #64748b;
+    margin-top: -10px;
+    margin-bottom: 18px;
+    padding-left: 3px;
+}
+
+.update-card button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.update-card button:hover {
+    background: #1d4ed8;
+}
+
+/* Footer */
+.footer {
+    background: #111827;
+    color: white;
+    padding: 40px;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-column h4 {
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.footer-column p {
+    cursor: pointer;
+}
+
+.footer-column p:hover {
+    color: #60a5fa;
+}
+
+.footer > p {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 36px;
+    }
+
+    .page-description {
+        font-size: 16px;
+    }
+
+    .update-card {
+        padding: 25px;
+    }
+
+    header {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

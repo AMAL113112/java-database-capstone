@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Appointment</title>
+    <link rel="stylesheet" href="/assets/css/updateAppointment.css">
+</head>
+<body>
+
+    <div id="header"></div>
+
+    <main>
+        <h1>Update Appointment</h1>
+
+        <p class="page-description">
+            Reschedule your existing appointment by selecting a new date
+            and time slot. Appointment updates are allowed only before
+            the cancellation/refund cutoff time.
+        </p>
+
+        <div class="update-wrapper">
+            <div class="update-card">
+                <h3>Update Appointment</h3>
+
+                <input
+                    type="date"
+                    id="appointmentDate"
+                >
+
+                <select id="appointmentTime">
+                    <option value="">Select Time Slot</option>
+                    <option value="09:00:00">09:00 - 10:00</option>
+                    <option value="10:00:00">10:00 - 11:00</option>
+                    <option value="11:00:00">11:00 - 12:00</option>
+                    <option value="14:00:00">14:00 - 15:00</option>
+                </select>
+
+                <button onclick="updateAppointment()">
+                    Update Appointment
+                </button>
+
+                <button onclick="goBack()">
+                    Back
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="/js/components/header.js"></script>
+    <script src="/js/components/footer.js"></script>
+
+    <script>
+        // Get appointment ID from URL
+        const params =
+            new URLSearchParams(window.location.search);
+
+        const appointmentId = params.get("id");
+
+        if (!appointmentId) {
+            alert("Invalid appointment");
+            window.location.href =
+                "/pages/patientAppointments.html";
+        }
+
+        // Prevent past dates
+        const today = new Date()
+            .toISOString()
+            .split("T")[0];
+
+        document.getElementById("appointmentDate").min = today;
+
+        async function updateAppointment() {
+            const date =
+                document.getElementById("appointmentDate").value;
+
+            const time =
+                document.getElementById("appointmentTime").value;
+
+            if (!date || !time) {
+                alert("Please fill all fields");
+                return;
+            }
+
+            const payload = {
+                appointmentTime: `${date}T${time}`
+            };
+
+            try {
+                const response = await fetch(
+                    `http://localhost:8080/appointment/update/${appointmentId}`,
+                    {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(payload)
+                    }
+                );
+
+                if (response.ok) {
+                    alert("Appointment updated successfully");
+                    window.location.href =
+                        "/pages/patientAppointments.html";
+                } else {
+                    const error = await response.text();
+                    alert(error || "Update failed");
+                }
+
+            } catch (error) {
+                console.error("Update Error:", error);
+                alert("Update failed");
+            }
+        }
+
+        function goBack() {
+            window.location.href =
+                "/pages/loggedPatientDashboard.html";
+        }
+    </script>
+
+</body>
+</html>

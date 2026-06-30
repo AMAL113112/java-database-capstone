@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Prescription</title>
+    <link rel="stylesheet" href="/assets/css/addPrescription.css">
+</head>
+<body>
+
+    <div id="header"></div>
+
+    <main>
+        <h1>Prescription Details</h1>
+
+        <div class="prescription-card">
+
+            <p><strong>Patient Name:</strong> 
+                <span id="patientName"></span>
+            </p>
+
+            <p><strong>Doctor Name:</strong> 
+                <span id="doctorName"></span>
+            </p>
+
+            <p><strong>Appointment ID:</strong> 
+                <span id="appointmentId"></span>
+            </p>
+
+            <p><strong>Diagnosis:</strong> 
+                <span id="diagnosis"></span>
+            </p>
+
+            <p><strong>Medication:</strong> 
+                <span id="medication"></span>
+            </p>
+
+            <p><strong>Dosage:</strong> 
+                <span id="dosage"></span>
+            </p>
+
+            <p><strong>Doctor Notes:</strong> 
+                <span id="doctorNotes"></span>
+            </p>
+
+            <p><strong>Date:</strong> 
+                <span id="prescriptionDate"></span>
+            </p>
+
+            <button onclick="goBack()">Back</button>
+        </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="/js/components/header.js"></script>
+    <script src="/js/components/footer.js"></script>
+    <script src="/js/viewPrescription.js"></script>
+
+    <script>
+        function goBack() {
+            window.location.href =
+                "/doctorDashboard/" +
+                localStorage.getItem("token");
+        }
+    </script>
+
+</body>
+</html>

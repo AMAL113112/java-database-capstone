@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Records</title>
+    <link rel="stylesheet" href="/assets/css/patientDashboard.css">
+</head>
+<body>
+
+    <div id="header"></div>
+
+    <main>
+        <h1>Patient Medical Records</h1>
+
+        <div id="content">
+            <!-- JS fills prescriptions here -->
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <button onclick="goBack()">← Back</button>
+        </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="/js/components/header.js"></script>
+    <script src="/js/components/footer.js"></script>
+
+    <!-- IMPORTANT: type="module" -->
+    <script type="module" src="/js/patientRecord.js"></script>
+
+    <script>
+        function goBack() {
+            window.location.href =
+                "/pages/loggedPatientDashboard.html";
+        }
+    </script>
+
+</body>
+</html>

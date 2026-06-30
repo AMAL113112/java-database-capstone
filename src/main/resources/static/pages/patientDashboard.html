@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard</title>
+    <link rel="stylesheet" href="/assets/css/patientDashboard.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <div id="header"></div>
+
+    <main>
+        <h1>Patient Dashboard</h1>
+
+        <!-- Search + Filter -->
+        <div class="search-container">
+            <input
+                id="searchBar"
+                type="text"
+                placeholder="Search doctor by name"
+            >
+
+            <select id="filterSpecialty">
+                <option value="">All Specialties</option>
+                <option value="Cardiologist">Cardiologist</option>
+                <option value="Neurologist">Neurologist</option>
+                <option value="Orthopedist">Orthopedist</option>
+                <option value="Pediatrician">Pediatrician</option>
+                <option value="Dermatologist">Dermatologist</option>
+            </select>
+        </div>
+
+        <!-- Doctor Cards -->
+        <div id="content"></div>
+    </main>
+
+    <!-- Overlay -->
+    <div id="modalOverlay" style="display:none;"></div>
+
+    <!-- Login Modal -->
+    <div id="patientLoginModal" class="modal" style="display:none;">
+        <span
+            class="close-btn"
+            onclick="closeModal('patientLoginModal')"
+        >&times;</span>
+
+        <h3>Patient Login</h3>
+
+        <input id="loginEmail" type="email" placeholder="Email">
+        <input id="loginPassword" type="password" placeholder="Password">
+
+        <button onclick="loginPatient()">Login</button>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="patientSignupModal" class="modal" style="display:none;">
+        <span
+            class="close-btn"
+            onclick="closeModal('patientSignupModal')"
+        >&times;</span>
+
+        <h3>Patient Signup</h3>
+
+        <input id="signupName" placeholder="Name">
+        <input id="signupEmail" type="email" placeholder="Email">
+        <input id="signupPassword" type="password" placeholder="Password">
+        <input id="signupPhone" placeholder="Phone">
+        <input id="signupAddress" placeholder="Address">
+
+        <button onclick="signupPatient()">Signup</button>
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal" style="display:none;">
+        <span
+            class="close-btn"
+            onclick="closeModal('bookingModal')"
+        >&times;</span>
+
+        <h3>Book Appointment</h3>
+
+        <input id="appointmentDate" type="date">
+
+        <select id="appointmentTime">
+            <option value="">Select Time Slot</option>
+            <option value="09:00:00">09:00 - 10:00</option>
+            <option value="10:00:00">10:00 - 11:00</option>
+            <option value="11:00:00">11:00 - 12:00</option>
+            <option value="14:00:00">14:00 - 15:00</option>
+            <option value="15:00:00">15:00 - 16:00</option>
+            <option value="16:00:00">16:00 - 17:00</option>
+        </select>
+
+        <button id="confirmBookingBtn">Confirm Booking</button>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <script>
+        if (!localStorage.getItem("userRole")) {
+            localStorage.setItem("userRole", "patient");
+        }
+    </script>
+
+    <script src="/js/components/header.js"></script>
+    <script src="/js/components/footer.js"></script>
+    <script type="module" src="/js/components/modals.js"></script>
+    <script type="module" src="/js/patientDashboard.js"></script>
+
+</body>
+</html>

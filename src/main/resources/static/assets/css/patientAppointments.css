@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #333;
+    min-height: 100vh;
+}
+
+.page-title {
+    text-align: center;
+    margin-top: 40px;
+    color: #2563eb;
+    font-size: 42px;
+}
+
+.appointments-container {
+    padding: 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.appointment-card {
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+.appointment-card:hover {
+    transform: translateY(-4px);
+}
+
+.appointment-card h3 {
+    color: #2563eb;
+    margin-bottom: 15px;
+}
+
+.appointment-card p {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+.back-btn {
+    margin-bottom: 25px;
+    padding: 12px 18px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.back-btn:hover {
+    background: #1d4ed8;
+}

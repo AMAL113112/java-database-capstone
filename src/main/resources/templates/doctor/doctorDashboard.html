@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard</title>
+    <link rel="stylesheet" href="/assets/css/doctorDashboard.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <div id="header"></div>
+
+    <main>
+        <h1>Doctor Dashboard</h1>
+
+        <!-- Doctor Oath -->
+        <p class="doctor-oath">
+            “I will apply, for the benefit of the sick, all measures
+            required, avoiding overtreatment and unnecessary harm.
+            I will remember that warmth, sympathy, and understanding
+            are essential in patient care. My duty is to heal,
+            comfort, and serve humanity with compassion.”
+        </p>
+
+        <!-- Search + Filter -->
+        <div class="filters">
+            <input
+                id="appointmentSearch"
+                type="text"
+                placeholder="Search patient by name"
+            >
+
+            <input
+                id="appointmentDate"
+                type="date"
+            >
+        </div>
+
+        <!-- New Appointments -->
+        <section class="dashboard-section">
+            <h2>New Appointments</h2>
+
+            <div id="appointment-container">
+                <!-- JS renders new appointments -->
+            </div>
+        </section>
+
+        <!-- Patient History -->
+        <section class="dashboard-section">
+            <h2>Patient History</h2>
+
+            <div id="patient-history-container">
+                <!-- JS renders completed appointments -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <!-- Components -->
+    <script src="/js/components/header.js"></script>
+    <script src="/js/components/footer.js"></script>
+
+    <!-- Page Script -->
+    <script type="module" src="/js/doctorDashboard.js"></script>
+
+</body>
+</html>

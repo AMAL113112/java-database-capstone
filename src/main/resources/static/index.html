@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Clinic</title>
+    <link rel="stylesheet" href="/assets/css/index.css">
+</head>
+<body>
+
+    <div id="header"></div>
+
+    <main>
+        <h1>Smart Clinic Management System</h1>
+
+        <p class="hero-text">
+            Simplifying healthcare with smart appointment scheduling,
+            patient management, and secure medical records.
+        </p>
+
+        <div class="hero-section">
+
+            <!-- LEFT SIDE : Image -->
+            <div class="hero-image">
+                <img
+                    src="/assets/images/doctors.png"
+                    alt="Doctors Team"
+                >
+            </div>
+
+            <!-- RIGHT SIDE : Description -->
+            <div class="hero-content">
+                <h2>Expert Healthcare Professionals</h2>
+
+                <p>
+                    Our clinic is supported by highly qualified and
+                    experienced doctors dedicated to providing
+                    compassionate care.
+                </p>
+
+                <p>
+                    From routine consultations to specialized treatments,
+                    our medical team ensures personalized attention for
+                    every patient.
+                </p>
+
+                <p>
+                    We combine modern technology with trusted medical
+                    expertise to deliver safer, faster, and smarter
+                    healthcare services.
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Overlay -->
+    <div
+        id="modalOverlay"
+        class="overlay"
+        style="display:none;"
+    ></div>
+
+    <!-- Admin Login Modal -->
+    <div
+        id="adminLoginModal"
+        class="modal"
+        style="display:none;"
+    >
+        <h3>Admin Login</h3>
+
+        <input
+            id="adminUsername"
+            type="text"
+            placeholder="Username"
+        >
+
+        <input
+            id="adminPassword"
+            type="password"
+            placeholder="Password"
+        >
+
+        <button onclick="adminLoginHandler()">
+            Login
+        </button>
+
+        <button onclick="closeModals()">
+            Close
+        </button>
+    </div>
+
+    <!-- Doctor Login Modal -->
+    <div
+        id="doctorLoginModal"
+        class="modal"
+        style="display:none;"
+    >
+        <h3>Doctor Login</h3>
+
+        <input
+            id="doctorEmail"
+            type="email"
+            placeholder="Email"
+        >
+
+        <input
+            id="doctorPassword"
+            type="password"
+            placeholder="Password"
+        >
+
+        <button onclick="doctorLoginHandler()">
+            Login
+        </button>
+
+        <button onclick="closeModals()">
+            Close
+        </button>
+    </div>
+
+    <div id="footer"></div>
+
+    <script src="/js/components/header.js"></script>
+    <script src="/js/components/footer.js"></script>
+    <script type="module" src="/js/services/index.js"></script>
+
+</body>
+</html>

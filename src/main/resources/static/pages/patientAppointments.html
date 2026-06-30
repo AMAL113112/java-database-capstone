@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Appointments</title>
+
+    <link rel="stylesheet" href="/assets/css/patientDashboard.css">
+    <link rel="stylesheet" href="/assets/css/patientAppointments.css">
+</head>
+<body>
+
+    <div id="header"></div>
+
+    <main>
+        <h1 class="page-title">My Appointments</h1>
+
+        <div class="appointments-container">
+            <button class="back-btn" onclick="goBack()">
+                ← Back
+            </button>
+
+            <!-- JS will fill appointments here -->
+            <div id="appointmentList"></div>
+        </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="/js/components/header.js"></script>
+    <script src="/js/components/footer.js"></script>
+    <script type="module" src="/js/patientAppointments.js"></script>
+
+    <script>
+        function goBack() {
+            window.location.href =
+                "/pages/loggedPatientDashboard.html";
+        }
+    </script>
+
+</body>
+</html>

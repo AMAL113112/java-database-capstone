@@ -1,0 +1,242 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #333;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 20px 30px;
+    background: white;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Buttons */
+button {
+    padding: 12px 18px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+/* Main */
+main {
+    padding: 40px 30px;
+}
+
+h1 {
+    text-align: center;
+    color: #2563eb;
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #2563eb;
+    margin-bottom: 20px;
+}
+
+/* Doctor Oath */
+.doctor-oath {
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #475569;
+    font-style: italic;
+    background: white;
+    padding: 22px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Section */
+.dashboard-section {
+    margin-bottom: 50px;
+}
+
+/* Filters */
+.filters {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+input {
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    min-width: 250px;
+    font-size: 14px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 4px rgba(37, 99, 235, 0.3);
+}
+
+/* Appointment Container */
+#appointment-container,
+#patient-history-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+/* Appointment Cards */
+.appointment-card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+.appointment-card:hover {
+    transform: translateY(-4px);
+}
+
+.appointment-card h3 {
+    color: #2563eb;
+    margin-bottom: 15px;
+}
+
+.appointment-card p {
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.appointment-card small {
+    display: inline-block;
+    margin-top: 8px;
+    margin-bottom: 12px;
+    color: #16a34a;
+    font-weight: bold;
+}
+
+/* Action buttons */
+.action-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.confirm-btn {
+    background: #16a34a;
+}
+
+.confirm-btn:hover {
+    background: #15803d;
+}
+
+.no-show-btn {
+    background: #dc2626;
+}
+
+.no-show-btn:hover {
+    background: #b91c1c;
+}
+
+.prescription-btn {
+    background: #7c3aed;
+}
+
+.prescription-btn:hover {
+    background: #6d28d9;
+}
+
+/* Empty text */
+.empty-text {
+    color: #64748b;
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+/* Footer */
+footer {
+    background: #111827;
+    color: white;
+    padding: 40px;
+    margin-top: 60px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-column h4 {
+    margin-bottom: 12px;
+}
+
+.footer-column p {
+    cursor: pointer;
+}
+
+.footer-column p:hover {
+    color: #60a5fa;
+}
+
+/* Copyright */
+footer > p {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 36px;
+    }
+
+    main {
+        padding: 25px 15px;
+    }
+
+    .filters {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    input {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .doctor-oath {
+        font-size: 16px;
+        padding: 18px;
+    }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Prescriptions</title>
+    <link rel="stylesheet"
+          href="/assets/css/patientPrescription.css">
+</head>
+<body>
+
+    <div id="header"></div>
+
+    <main>
+        <h1>My Prescriptions</h1>
+
+        <p class="page-description">
+            View all prescriptions provided by your doctors.
+        </p>
+
+        <div id="prescriptionContainer"></div>
+
+        <button onclick="goBack()">Back</button>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="/js/components/header.js"></script>
+    <script src="/js/components/footer.js"></script>
+    <script src="/js/patientPrescription.js"></script>
+
+    <script>
+        function goBack() {
+            window.location.href =
+                "/pages/loggedPatientDashboard.html";
+        }
+    </script>
+
+</body>
+</html>

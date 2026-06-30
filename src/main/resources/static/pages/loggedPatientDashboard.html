@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logged Patient Dashboard</title>
+    <link rel="stylesheet" href="/assets/css/patientDashboard.css">
+</head>
+<body>
+
+    <div id="header"></div>
+
+    <main>
+        <!-- Welcome + Settings -->
+        <div class="welcome-container">
+            <h1 id="welcomeText">Welcome Patient</h1>
+
+            <button id="settingsBtn" onclick="openSettings()">
+                ⚙
+            </button>
+        </div>
+
+        <!-- Dashboard Actions -->
+        <div id="dashboardActions">
+            <div class="doctor-card">
+                <h2>Dashboard</h2>
+                <p>You are successfully logged in.</p>
+
+                <button onclick="goAppointments()">
+                    My Appointments
+                </button>
+
+                <button onclick="goRecords()">
+                    Medical Records
+                </button>
+
+                <button onclick="logout()">
+                    Logout
+                </button>
+            </div>
+        </div>
+
+        <!-- Search + Filter -->
+        <div class="search-container">
+            <input
+                id="searchBar"
+                type="text"
+                placeholder="Search doctor by name"
+            >
+
+            <select id="filterSpecialty">
+                <option value="">All Specialties</option>
+                <option value="Cardiologist">Cardiologist</option>
+                <option value="Neurologist">Neurologist</option>
+                <option value="Orthopedist">Orthopedist</option>
+                <option value="Pediatrician">Pediatrician</option>
+                <option value="Dermatologist">Dermatologist</option>
+            </select>
+        </div>
+
+        <!-- Doctor List -->
+        <div id="content"></div>
+    </main>
+
+    <!-- Overlay -->
+    <div id="modalOverlay" style="display:none;"></div>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal" style="display:none;">
+        <h3>Book Appointment</h3>
+
+        <input type="date" id="appointmentDate">
+
+        <select id="appointmentTime">
+            <option value="">Select Time</option>
+            <option value="09:00:00">09:00 - 10:00</option>
+            <option value="10:00:00">10:00 - 11:00</option>
+            <option value="11:00:00">11:00 - 12:00</option>
+            <option value="14:00:00">14:00 - 15:00</option>
+        </select>
+
+        <button id="confirmBookingBtn">
+            Confirm Booking
+        </button>
+
+        <button onclick="closeBookingModal()">
+            Cancel
+        </button>
+    </div>
+
+    <!-- SETTINGS MODAL -->
+    <div id="settingsModal" class="modal" style="display:none;">
+        <h3>Account Settings</h3>
+
+        <input id="settingsName" placeholder="Username">
+        <input id="settingsEmail" placeholder="Email">
+        <input id="settingsPhone" placeholder="Phone Number">
+        <input id="settingsPassword" type="password" placeholder="New Password">
+
+        <button onclick="saveSettings()">Save Changes</button>
+        <button class="delete-btn" onclick="deleteAccount()">
+            Delete Account
+        </button>
+        <button onclick="closeSettings()">Close</button>
+    </div>
+
+    <div id="footer"></div>
+
+    <script src="/js/components/header.js"></script>
+    <script src="/js/components/footer.js"></script>
+    <script type="module" src="/js/patientDashboard.js"></script>
+
+    <script>
+        const patientName = localStorage.getItem("patientName");
+
+        if (patientName) {
+            document.getElementById("welcomeText").innerText =
+                "Welcome " + patientName;
+        }
+
+        function goAppointments() {
+            window.location.href =
+                "/pages/patientAppointments.html";
+        }
+
+        function goRecords() {
+            window.location.href =
+                "/pages/patientRecord.html";
+        }
+
+        function closeBookingModal() {
+            document.getElementById("bookingModal").style.display =
+                "none";
+
+            document.getElementById("modalOverlay").style.display =
+                "none";
+        }
+
+        function openSettings() {
+            document.getElementById("settingsModal").style.display =
+                "block";
+
+            document.getElementById("modalOverlay").style.display =
+                "block";
+        }
+
+        function closeSettings() {
+            document.getElementById("settingsModal").style.display =
+                "none";
+
+            document.getElementById("modalOverlay").style.display =
+                "none";
+        }
+
+        function saveSettings() {
+            alert("Backend API needed");
+        }
+
+        function deleteAccount() {
+            const confirmDelete = confirm(
+                "Are you sure you want to delete your account?"
+            );
+
+            if (confirmDelete) {
+                alert("Backend delete API needed");
+            }
+        }
+    </script>
+
+</body>
+</html>
