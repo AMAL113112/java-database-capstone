@@ -1,0 +1,19 @@
+name: Frontend CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  frontend-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check frontend files
+        run: |
+          find . -name "*.html"
+          find . -name "*.css"
+          find . -name "*.js"
