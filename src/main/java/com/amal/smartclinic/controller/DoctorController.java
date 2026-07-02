@@ -42,6 +42,34 @@ public class DoctorController {
         return doctorService.getDoctorById(id);
     }
 
+    @GetMapping("/availability")
+    public ResponseEntity<?> getDoctorAvailability(
+            @RequestParam String role,
+            @RequestParam Long doctorId,
+            @RequestParam String date,
+            @RequestHeader("Authorization") String token) {
+
+        if (!tokenService.validateToken(token, role)) {
+            return ResponseEntity.status(401)
+                    .body("Invalid or expired token");
+        }
+
+        Doctor doctor = doctorService.getDoctorById(doctorId);
+
+        if (doctor == null) {
+            return ResponseEntity.status(404)
+                    .body("Doctor not found");
+        }
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("doctorId", doctor.getId());
+        response.put("doctorName", doctor.getName());
+        response.put("date", date);
+        response.put("availableTimes", doctor.getAvailableTimes());
+
+        return ResponseEntity.ok(response);
+    }
+
     @PostMapping
     public Doctor addDoctor(@RequestBody Doctor doctor) {
         return doctorService.saveDoctor(doctor);
