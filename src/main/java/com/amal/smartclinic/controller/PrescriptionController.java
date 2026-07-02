@@ -1,6 +1,8 @@
 package com.amal.smartclinic.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -8,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import com.amal.smartclinic.model.Prescription;
 import com.amal.smartclinic.repository.PrescriptionRepository;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/prescription")
@@ -29,8 +33,9 @@ public class PrescriptionController {
                 prescriptionRepository.findById(id).orElse(null);
 
         if (prescription == null) {
-            return ResponseEntity.badRequest()
-                    .body("Prescription not found");
+            Map<String, String> response = new HashMap<>();
+            response.put("message", "Prescription not found");
+            return ResponseEntity.badRequest().body(response);
         }
 
         return ResponseEntity.ok(prescription);
@@ -61,8 +66,9 @@ public class PrescriptionController {
                         .findByAppointmentId(appointmentId);
 
         if (prescription == null) {
-            return ResponseEntity.badRequest()
-                    .body("Prescription not found");
+            Map<String, String> response = new HashMap<>();
+            response.put("message", "Prescription not found");
+            return ResponseEntity.badRequest().body(response);
         }
 
         return ResponseEntity.ok(prescription);
@@ -70,7 +76,7 @@ public class PrescriptionController {
 
     @PostMapping
     public ResponseEntity<?> addPrescription(
-            @RequestBody Prescription prescription) {
+            @Valid @RequestBody Prescription prescription) {
 
         Prescription existing =
                 prescriptionRepository.findByAppointmentId(
@@ -78,14 +84,18 @@ public class PrescriptionController {
                 );
 
         if (existing != null) {
-            return ResponseEntity.badRequest()
-                    .body("Prescription already exists for this appointment");
+            Map<String, String> response = new HashMap<>();
+            response.put("message",
+                    "Prescription already exists for this appointment");
+            return ResponseEntity.badRequest().body(response);
         }
 
-        Prescription saved =
-                prescriptionRepository.save(prescription);
+        prescriptionRepository.save(prescription);
 
-        return ResponseEntity.ok(saved);
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Prescription saved successfully");
+
+        return ResponseEntity.ok(response);
     }
 
     @DeleteMapping("/{id}")
@@ -96,14 +106,16 @@ public class PrescriptionController {
                 prescriptionRepository.findById(id).orElse(null);
 
         if (prescription == null) {
-            return ResponseEntity.badRequest()
-                    .body("Prescription not found");
+            Map<String, String> response = new HashMap<>();
+            response.put("message", "Prescription not found");
+            return ResponseEntity.badRequest().body(response);
         }
 
         prescriptionRepository.deleteById(id);
 
-        return ResponseEntity.ok(
-                "Prescription deleted successfully"
-        );
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Prescription deleted successfully");
+
+        return ResponseEntity.ok(response);
     }
 }
