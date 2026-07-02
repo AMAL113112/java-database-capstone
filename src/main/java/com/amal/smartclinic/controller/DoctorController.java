@@ -65,7 +65,6 @@ public class DoctorController {
         response.put("doctorId", doctor.getId());
         response.put("doctorName", doctor.getName());
         response.put("date", date);
-        response.put("availableTimes", doctor.getAvailableTimes());
 
         return ResponseEntity.ok(response);
     }
