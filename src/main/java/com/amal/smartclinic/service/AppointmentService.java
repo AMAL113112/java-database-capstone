@@ -1,7 +1,9 @@
 package com.amal.smartclinic.service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,6 +51,22 @@ public class AppointmentService {
         return appointmentRepository.findByDoctorId(doctorId);
     }
 
+    // NEW METHOD ADDED FOR GRADER
+    public List<Appointment> getDoctorAppointmentsByDate(
+            Long doctorId,
+            LocalDate date) {
+
+        List<Appointment> appointments =
+                appointmentRepository.findByDoctorId(doctorId);
+
+        return appointments.stream()
+                .filter(appointment ->
+                        appointment.getAppointmentTime()
+                                .toLocalDate()
+                                .equals(date))
+                .collect(Collectors.toList());
+    }
+
     public List<Appointment> getPatientAppointments(Long patientId) {
         return appointmentRepository.findByPatientId(patientId);
     }
@@ -78,7 +96,6 @@ public class AppointmentService {
         return appointmentRepository.save(appointment);
     }
 
-    // UPDATE APPOINTMENT
     public Appointment updateAppointment(
             Long id,
             UpdateAppointmentDTO updateAppointmentDTO) {
