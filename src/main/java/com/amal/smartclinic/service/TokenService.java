@@ -13,6 +13,10 @@ public class TokenService {
         return token != null && token.endsWith("_token");
     }
 
+    public boolean validateToken(String token, String role) {
+        return validateToken(token) && role.equals(extractRole(token));
+    }
+
     public String extractRole(String token) {
         if (token == null) {
             return null;
